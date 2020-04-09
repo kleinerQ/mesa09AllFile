@@ -1,0 +1,190 @@
+{\rtf1\ansi\ansicpg950\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\froman\fcharset0 Times-Roman;\f2\fswiss\fcharset0 ArialMT;
+\f3\fswiss\fcharset0 Helvetica;\f4\fmodern\fcharset0 Courier;\f5\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red42\green42\blue42;\red205\green190\blue151;\red122\green37\blue30;
+\red67\green67\blue67;\red255\green255\blue255;\red109\green109\blue109;\red193\green193\blue193;\red34\green34\blue34;
+\red88\green196\blue193;\red34\green79\blue188;}
+{\*\expandedcolortbl;;\csgenericrgb\c16471\c16471\c16471;\cssrgb\c84314\c78824\c65490;\csgenericrgb\c47826\c14510\c11688\c85000;
+\csgenericrgb\c26275\c26275\c26275;\cssrgb\c100000\c100000\c100000;\cssrgb\c50196\c50196\c50196;\cssrgb\c80000\c80000\c80000;\cssrgb\c17647\c17647\c17647;
+\cssrgb\c40392\c80392\c80000;\csgenericrgb\c13206\c30848\c73913;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+raspivid -o - -t 0 -n | cvlc -v -I \'93dummy\'94 stream:///dev/stdin :sout=\'93#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://192.168.2.2/streaming/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/streaming/stream-########.ts,\}\'94  :demux=h264
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 Final\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf3 \cb4 \CocoaLigature0 raspivid -o - -t 0 -w 640 -h 360 -fps 25 -b 5000000 -g 30 | tee ~/`date +%Y-%m-%d_%H_%M_%S`.h264  |cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=1,delsegs=true,numsegs=1, index=/var/www/html/streaming/stream.m3u8, index-url=/streaming/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/html/streaming/stream-########.ts\}" :demux=h264
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\
+\
+Ok
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\fs28 \cf5 raspivid -o - -t 99999 |cvlc -vvv stream:///dev/stdin --sout '#standard\{access=http,mux=ts,dst=:8090\}' :demux=h264
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+
+\f2\fs28 \cf5 \expnd0\expndtw0\kerning0
+ok
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f2\fs28 \cf5 \expnd0\expndtw0\kerning0
+raspivid -o - -t 0  |cvlc -vvv stream:///dev/stdin --sout '#standard\{access=http,mux=ts,dst=:8090\}' :demux=h264
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+ok
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\fs28 \cf5 \expnd0\expndtw0\kerning0
+raspivid -o - -t 0 
+\f0\fs26 \cf2 -hf -w 800 -h 400 -fps 24
+\f2\fs28 \cf5  |cvlc -vvv stream:///dev/stdin --sout '#standard\{access=http,mux=ts,dst=:8090\}' :demux=h264
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+
+\f2\fs28 \cf5 \expnd0\expndtw0\kerning0
+Browser
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f2\fs28 \cf5 \expnd0\expndtw0\kerning0
+http://192.168.0.101:8090/
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl260\partightenfactor0
+\cf0 \
+\
+//modify the index.html in www/html as follow\
+\
+<html>\
+  <head>\
+    <title>PiVid</title>\
+  </head>\
+  <body>\
+    <video controls="controls" width="1280" height="720" autoplay="autoplay" >\
+      <source src="stream.m3u8" type="application/x-mpegURL" />\
+    </video>\
+  </body>\
+</html>\
+\
+\
+\
+//run\
+raspivid -o - -t 0 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/html/stream.m3u8, index-url=http://10.2.24.110/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/html/stream-########.ts\}" :demux=h264\
+\
+//ios browser\
+http://10.2.24.110\
+\
+//ok better parameter hls Beta OK\
+raspivid -o - -t 0 -w 640 -h 360 -fps 25 -b 5000000 -g 30 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=1,delsegs=true,numsegs=1, index=/var/www/html/stream.m3u8, index-url=http://10.2.24.110/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/html/stream-########.ts\}" :demux=h264\
+\
+\
+//try parameter\
+raspivid -o - -t 0 -w 640 -h 360 -fps 25 -b 5000000 -g 30 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#transcode\{vb=512,scale=1,acodec=none\}:std\{access=livehttp\{seglen=1,delsegs=true,numsegs=1, index=/var/www/html/stream.m3u8, index-url=http://10.2.24.110/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/html/stream-########.ts\}" :demux=h264\
+\
+//ok change directory \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 raspivid -o - -t 0 -w 640 -h 360 -fps 25 -b 5000000 -g 30 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=1,delsegs=true,numsegs=1, index=/var/www/html/streaming/stream.m3u8, index-url=/streaming/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/html/streaming/stream-########.ts\}" :demux=h264\
+\pard\pardeftab720\sl260\partightenfactor0
+\cf0 \
+\
+ok\
+raspivid -o - -t 0 |cvlc -vvv stream:///dev/stdin --sout '#rtp\{sdp=rtsp://:8160/\}' :demux=h264\
+\
+Not OK\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+raspivid -o - -t 0 |cvlc -v stream:///dev/stdin --sout '#rtp\{sdp=rtsp://:8160/\}' :demux=h264\
+\
+\
+Try\
+\pard\pardeftab720\sl288\slmult1\sa140\partightenfactor0
+\cf0 \
+raspivid -o - -t 0 | cvlc -v -I "dummy" stream:///dev/stdin :sout= "#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://192.168.0.101/streaming/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/streaming/stream-########.ts\}" :demux=h264\
+\
+access_output_livehttp access out error: cannot open `/var/www/streaming/stream-00000001.ts' (No such file or directory)\
+\
+\
+OK\
+youtube\
+raspivid -o - -t 0 -w 1280 -h 720 -fps 25 -b 4000000 -g 50 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/ceev-51j8-rp7g-092f\
+\
+Browser\
+https://youtu.be/lktF4AHYzLo\
+\
+\
+\
+Try\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3 \cf0 raspivid -o - -t 0 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://10.2.24.110/streaming/stream-########.ts\}, mux=ts\{use-key-frames\},dst=/var/www/streaming/stream-########.ts\}" :demux=h264\
+\
+\
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f4\fs28 \cf6 \cb7 \expnd0\expndtw0\kerning0
+raspivid -o - -t 0 | cvlc -v -I "dummy" stream:///dev/stdin  :sout="#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://<IPofRaspberryPi>/streaming/stream-########.ts\}, mux=ts\{use-key-frames\}, dst=/var/www/streaming/stream-########.ts\}" :demux=h264\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+\pard\pardeftab720\sl540\partightenfactor0
+
+\f5\fs36 \cf8 \cb9 \expnd0\expndtw0\kerning0
+raspivid -o - -t 0 -w 1280 -h 720 -fps 25 -b 4000000 -g 50 \cf10 |\cf8  ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/\cf10 <\cf8 key goes here\cf10 >\cf8 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f4\fs27 \cf6 \cb7 \expnd0\expndtw0\kerning0
+raspivid -o -  -w 920 -h 540 -t 9999999 |  vlc -v -I "dummy" stream:///dev/stdin  :sout="#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://192.168.0.101/streaming/stream-########.ts\}, mux=ts\{use-key-frames\}, dst=/var/www/streaming/stream-########.ts\}" :demux=h264\
+\
+\
+Failed to open VDPAU backend libvdpau_nvidia.so: cannot open shared object file: No such file or directory\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf1 \cb11 \kerning1\expnd0\expndtw0 \CocoaLigature0 raspivid -o - -t 0 | cvlc -v -I "dummy" stream:///dev/stdin :sout="#std\{access=livehttp\{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://192.168.0.101/streaming/stream-########.ts\}, mux=ts\{use-key-frames\}, dst=/var/www/streaming/stream-########.ts\}" :demux=h264\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl288\slmult1\sa140\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \CocoaLigature1 Pppp\
+}

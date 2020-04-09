@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+
+    <style type="text/css">
+        .gameTable {
+
+            width: 100%;
+            overflow: hidden;
+            /*padding:0;*/
+            /*margin:0;*/
+            /*background-color:var(--main-bg-color);*/
+        }
+
+
+
+
+
+        .imgContainerStyle {
+            /*background-image: url("images/grass.jpg");*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: cover;*/
+            cursor: crosshair;
+            /*border: 1px solid red;*/
+            margin: 0px auto;
+            margin-top:1%;
+            /*background-color:red;*/
+            /*height:80%;*/
+            width: 40%;
+            overflow: hidden;
+            float: none;
+
+        }
+
+        .buttonStyle {
+            /*float:center;*/
+            /*background-color:red;*/
+            margin-left: 30px;
+        }
+
+        .imgBeast {
+            position: relative;
+            
+            left: -30%;
+            margin: 5%;
+            z-index: 2;
+            /*transition: all 1s linear;*/
+            
+            
+
+        }
+
+        .digitTurn{
+           animation:turn 1s linear ; 
+            
+        }
+        
+        @keyframes turn{
+	        from {transform:rotateX(0deg); }
+	        to {  transform:rotateX(360deg); }
+        }
+        
+        #countDown {
+            /*background-color:#419D78;*/
+            color: #00FFFF;
+            font-size: 480%;
+            text-align: right;
+            z-index:5;
+            /*animation:turn 60s linear ;            */
+
+        }
+
+
+
+
+        #randomImage {
+
+            position: absolute;
+            width: 20%;
+            top:-70%;
+            left:70%;
+            z-index: 3; 
+        }
+
+
+        .resultDisplayBoard {
+
+            display: inline-block;
+
+        }
+
+        #stopButton {
+
+            height: 800%;
+            background-color:red;
+            float:right;
+            margin:0%;
+        }
+
+
+
+        #bannerImage {
+        	position: absolute;
+        
+        	top:0px;
+        	width: 3000%;
+        	height: 100%;
+        	background-image: url('images/grass4.jpg');
+        	background-repeat: repeat-x;
+        	
+        	left: -1300%;
+
+            transition: all  0.5s linear;
+        
+      
+        	/*-webkit-animation: rollImage linear 120s infinite;*/
+         /*   -moz-animation: rollImage linear 12s infinite;*/
+         /*   -ms-animation: rollImage linear 12s infinite;*/
+         /*   animation: rollImage linear 120s infinite;*/
+        }
+        
+
+
+        #turnRightButton{
+            /*width:20%;*/
+            position:absolute;
+            bottom:0%;
+            right:5%;
+            
+        }
+
+        #turnLeftButton{
+            /*width:20%;*/
+            position:absolute;
+            bottom:0%;
+            left:5%;
+            
+        }
+
+        .btn-circle {
+          width: 10%;
+          height: 16%;
+          text-align: center;
+          padding: 6px 0;
+          font-size: 12px;
+          line-height: 1.42;
+          border-radius: 100px;
+        }        
+
+
+    #appleDraw{
+        /*border:2px solid red;*/
+        position:absolute;
+        height:23000%;
+        width:120%;
+        z-index:0;
+        left:40%;
+        /*top:-100%;*/
+        bottom:50px;
+        /*background-color:yellow;*/
+        
+        
+    }
+    </style>
+
+
+</head>
+
+<body>
+    
+    <div class="gameTable">
+
+        <div class=" col-md-6 imgContainerStyle ">
+            <div id="countDown" style="position:absolute; top:3%; right:3%;"><span id="timer"></span></div>
+            
+            <div class="row">
+                <img id="img0" class="imgBeast" src="./images/Rhino.png" width="15%">
+            </div>
+            <div class="row">
+                <img id="img1" class="imgBeast" src="./images/deer.png" width="15%">
+            </div>
+            <div class="row">
+                <img id="img2" class="imgBeast"  width="15%">
+            </div>
+            <!--<div class="row">-->
+            <!--    <img id="img3" class="imgBeast" src="./images/deer.png" width="150px">-->
+            <!--</div>-->
+            <!--<div class="row">-->
+            <!--    <img id="img4" class="imgBeast" src="./images/deer.png" width="150px">-->
+            <!--</div>-->
+            <!--<div class="row">-->
+            <!--    <img id="img5" class="imgBeast" src="./images/Rhino.png" width="150px">-->
+            <!--</div>-->
+            
+            <div id="bannerImage"></div>
+            
+            
+            <div><button id="turnLeftButton" type="button" class="btn btn-primary btn-lg btn-circle" ><span class="glyphicon glyphicon-chevron-left"></span></button></div>
+            <div><button id="turnRightButton" type="button" class="btn btn-primary btn-lg btn-circle" ><span class="glyphicon glyphicon-chevron-right"></span></button></div>
+
+
+            <img id="randomImage" src="images/bird.png">
+            
+             <div class=" col-md-6">
+                <canvas id="appleDraw" ></canvas>
+            </div>           
+
+            <!--<button type="button" id="img1Button">按我停</button>-->
+        </div>
+        
+        
+    </div>
+
+    <div id="startModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style="display:none;" data-backdrop="static">&times;</button>
+                    <h2>Shot IT!</h2>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="userNameTextBox">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    玩家名字
+                                </label>
+                            <input type="text" id="userNameTextBox" class="form-control" placeholder="輸入玩家名" />
+                        </div>
+
+
+                        <div class="pull-right">
+                            <!--<button type="button"-->
+                            <!--        id="loginButton"-->
+                            <!--        class="btn btn-success "-->
+                            <!--        style="display:none;">-->
+                            <!--    <span class="glyphicon glyphicon-off"></span> 登入-->
+                            <!--</button>-->
+                            <button type="button" id="startButton" class="btn btn-default " data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-fire"></span> 按我開始
+                                </button>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>
+                        <div style="float:left;">排行榜<br></div>
+                        |
+                        <a href="mailto:chih.yen5408@gmail.com">歡迎來信</a>
+                    </p>
+                    <div id="firstUserPoint"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="margin:0 30%;font-size:300%">
+        <label  class="resultDisplayBoard">得分:</label>
+        <div id="pointBoard" style=" margin-left:1em;" class="resultDisplayBoard"></div>
+        <div><button id="stopButton" type="button" class="btn btn-info btn-lg resultDisplayBoard" 
+                data-toggle="modal" data-target="#restartModal" 
+                data-backdrop="static">Restart</button></div>
+    </div>
+
+
+    <div id="restartModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style="display:none;" data-backdrop="static">&times;</button>
+                    <h2>Shot IT!</h2>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="userNameTextBoxRestart">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    玩家名字
+                                </label>
+                            <input type="text" id="userNameTextBoxRestart" class="form-control" placeholder="輸入玩家名" />
+                        </div>
+
+
+                        <div class="pull-right">
+                            <!--<button type="button"-->
+                            <!--        id="loginButton"-->
+                            <!--        class="btn btn-success "-->
+                            <!--        style="display:none;">-->
+                            <!--    <span class="glyphicon glyphicon-off"></span> 登入-->
+                            <!--</button>-->
+                            <button type="button" id="restartButton" class="btn btn-default " data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-fire"></span> 按我開始
+                                </button>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>
+                        <div style="float:left;">得分榜<br></div>
+                        |
+                        <a href="mailto:chih.yen5408@gmail.com">歡迎來信</a>
+                    </p>
+                    <div id="recordBoard" style="float:left;" ></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <audio id="audio" src="sound/fireSound3.mp3"></audio>
+    <audio id="starAudio" src="sound/star.ogg"></audio>
+
+
+    <script type="text/javascript">
+        
+        window.onload = init;
+        var starNow=[];
+        var pointCounter = 0;
+        function init() {
+            
+            localStorage.clear();
+            var backgroundImageXLocation =1300; //the orignal position for the background grass
+        
+            var audio = document.getElementById('audio');
+            var starAudio = document.getElementById('starAudio');
+            var c = document.getElementById("appleDraw");
+	    	var ctx = c.getContext('2d');            
+            
+            clearAllInterval();
+            var clickedFlag = false;
+            var pointCounter = 0;
+            var firstUserName=[];
+            var firstUserRecord;
+            var recordText=[];
+            var starNumber= 2;
+
+            var xPostionMatrix = [];
+            
+            $("#pointBoard").text(pointCounter);
+
+
+            //prevent the other area to close the window and prevent the keyboard either
+            $("#startModal").modal({ show: "true", backdrop: 'static', keyboard: false });
+
+
+
+            $("#stopButton").click(function() {
+
+                if($("#firstUserPoint").text()==""){
+                    $("#firstUserPoint").text(pointCounter);
+                    firstUserRecord = "<br>"+ localStorage["firstUserName"] + "&nbsp&nbsp&nbsp&nbsp"+ pointCounter;
+                    $("#recordBoard").html(firstUserRecord);
+                }else{
+                    
+                    var userName = $("#userNameTextBoxRestart").val();
+                    
+                    recordText ="<br>"+ userName + "&nbsp&nbsp&nbsp&nbsp"+  pointCounter+ recordText  ;
+                    
+                      
+                    $("#recordBoard").html(recordText+firstUserRecord);                    
+                    
+                    
+                }
+                
+
+                pointCounter = 0;
+                $("#pointBoard").text(pointCounter);
+                clearAllInterval();
+                $("#timer").html("60");
+
+
+                
+                //set all the image to its original
+                for (var i = 0; i < xPostionMatrix.length; i++) {
+
+                    $(".imgBeast").attr("style", "left:" + xPostionMatrix[0]);
+                }
+                ctx.clearRect(0,0,c.width,c.height);
+
+            })
+
+
+            $("#startButton, #restartButton").click(function() {
+                
+
+ 
+
+
+                firstUserName = $("#userNameTextBox").val();
+                
+                if(!localStorage["firstUserName"])
+                {
+                    localStorage.setItem("firstUserName", firstUserName);
+                    if(!localStorage["firstUserName"]){
+                        localStorage.setItem("firstUserName", "Unknown");
+                        
+                    }
+                    
+                }    
+                    
+		        document.getElementById("userNameTextBoxRestart").value = localStorage["firstUserName"];
+		        document.getElementById("userNameTextBoxRestart").onkeyup = doChange;
+		        
+                if(!localStorage["firstUserName"])
+                {
+                    localStorage.setItem("firstUserName", "Unknown");
+                }		        
+                
+            	function doChange() {
+            		localStorage.setItem("firstUserName", this.value);
+            		if(!document.getElementById("userNameTextBoxRestart").value){
+            		    localStorage.setItem("firstUserName", "Unknown");
+            		}
+            	}                
+                            
+                
+                //localStorage.setItem("userName", $("#userNameTextBoxRestart").val());
+                
+                pointCounter = 0;
+                $("#pointBoard").text(pointCounter);
+                clearAllInterval();
+                
+                var gameTime = 60;
+                var timeChar;
+                var time2 = setInterval(function() {
+                    
+                    timeChar = (gameTime+1000).toString().substr(2,2);
+                    $("#timer").html(timeChar);
+                   
+                    $("#countDown").addClass("digitTurn");
+                    
+                    if (gameTime == 0) {
+                        clearAllInterval();
+                    }
+                    
+                    setStarAndDraw();
+                    
+                    if(gameTime%10 ==5){
+                        
+                        ctx.clearRect(0,0,c.width,c.height);
+                        var counter=Star.all.length;
+                        
+                        while(counter--)
+                        {
+                            Star.all[counter].remove();
+                        }
+
+                        
+                    }
+                
+                    gameTime--;
+
+                }, 1000);
+
+
+                setInterval(function() {
+                    
+                     $("#countDown").removeClass("digitTurn");               
+                     
+                },2000);
+
+
+
+                xPostionMatrix = [];
+
+                //已知頭尾及移動步數創出移動矩陣
+                var startPoint = -30;
+                var endPoint = 70;
+                var moveStep = 5;
+
+                var imageNumber = 2;
+                var timeCounter = 0;
+                var imageChoosed;
+                var timeGap = 1000;
+                var imageChoosedNameIndex = Math.floor(Math.random() * imageNumber);
+                var imageChoosedName = "#img" + imageChoosedNameIndex;
+                
+                
+                
+                xPostionMatrix=creatXPostionMatrix(startPoint,endPoint,moveStep);               
+
+                function movefunction(timeGap) {
+                    //console.log(imageChoosedName);
+                    var time1 = setInterval(function() {
+
+                        //if exceed the PositionMatrix then choose the other image to startover
+
+                        if (timeCounter >= moveStep || clickedFlag == true) {
+
+                            //$(imageChoosedName).prop("style", "left:" + xPostionMatrix[timeCounter]);
+                            
+                            clearInterval(time1);
+                            moveStep=Math.floor(Math.random()*8+2);
+                            xPostionMatrix=creatXPostionMatrix(startPoint,endPoint,moveStep); //更新x位置矩陣
+                            imageChoosedName = "#img" + Math.floor(Math.random() * imageNumber);
+                            movefunction(timeGap);
+                            timeCounter = 0;
+
+                            clickedFlag = false;
+                        }
+
+
+
+                        $(imageChoosedName).prop("style", "left:" + xPostionMatrix[timeCounter]);
+
+                        timeCounter++;
+
+                        //if there is no position value in the xPostionMatrix then run the next image
+
+                    }, timeGap);
+
+                }
+
+
+
+
+
+                movefunction(timeGap);
+                var randomImageTime =1300;
+
+
+                setTimeout(function repeatRandom() {
+
+                    var randomResult= Math.random() * 200;// 為了讓畫面好看 鳥不要被切到
+                    while(randomResult<=20 || (randomResult >=80 && randomResult <=100)){
+                        randomResult= Math.random() * 200;
+                    }
+                    
+                    $("#randomImage").attr("style", "left:" + (Math.random()* 50 + 20)  + "%;" + "top:" + randomResult + "%");
+                    // debugger
+                    setTimeout(repeatRandom, randomImageTime);
+
+
+
+                }, randomImageTime);
+
+            });
+
+            
+
+            $(".imgBeast").click(function() {
+
+
+                pointCounter += 1;
+                $("#pointBoard").text(pointCounter);
+                var anchor=$(this);
+
+                
+                // $(this).addClass("imgDisappear");
+                $(this).attr("style", "left:" + xPostionMatrix[0]);
+                // $(this).removeClass("imgDisappear");
+                clickedFlag = true;
+                
+                audio.play();
+                
+       
+
+            });
+
+           
+            
+
+            
+             function setStarAndDraw() {
+                  ctx.clearRect(0,0,c.width,c.height);
+
+                  //var counter=Star.all.length;
+                  
+                  while(Star.all.length < starNumber){  
+                    
+                      var randomStarX = Math.floor(Math.random()*c.width);
+                      var randomStarY = Math.floor(Math.random()*c.height);
+                      
+                      while(randomStarX > 0.6*c.width) {
+                          randomStarX = Math.floor(Math.random()*c.width);
+                      }
+                      
+                      while(randomStarY > 0.6*c.height) {
+                          randomStarY = Math.floor(Math.random()*c.height);
+                      }
+                      
+                      var star =new Star(randomStarX+30,randomStarY+30,20,6,0.6,"yellow",ctx);
+                      
+                      
+                  }
+                  
+                  
+                  
+
+
+                          
+
+                  Star.drawAll();
+                  
+                  
+                           
+                      
+                      
+                      
+                  
+             }
+             
+             
+            
+            
+            
+            var time3;
+            $("#turnRightButton").bind({
+                
+                'mouseenter': function(){
+                            time3 = setInterval(function(){
+                                backgroundImageXLocation+=3;
+                                $("#bannerImage").attr("style","left: -"+backgroundImageXLocation+"%" );
+                            
+                            },300)
+
+                },
+                'mouseleave': function(){
+                        clearInterval(time3);
+                }
+
+            })
+
+
+            $("#turnLeftButton").bind({
+                
+                'mouseenter': function(){
+                            time3 = setInterval(function(){
+                                backgroundImageXLocation-=3;
+                            $("#bannerImage").attr("style","left: -"+backgroundImageXLocation+"%" );
+                            
+                            },300)
+
+                },
+                'mouseleave': function(){
+                        clearInterval(time3);
+                }
+
+            })
+            
+            
+            
+            
+
+            $("#randomImage").click(function() {
+                $(this).attr("style", "left:-20%")
+                pointCounter += 1;
+                $("#pointBoard").text(pointCounter);
+                audio.play();
+                
+            });
+
+          
+            document.onclick= checkStarClick; 
+            function checkStarClick(event){
+                
+                
+                
+                var mouseY=event.clientY;
+                var mouseX=event.clientX;
+                var counter=Star.all.length;
+                
+                function StarPos(){
+                    this.x;
+                    this.y}
+                    
+                
+                
+                while(counter--){
+                try{
+                    
+                    var rect = c.getBoundingClientRect();
+                    var starPos= new StarPos();
+                    starPos.x=rect.left + Star.all[counter].x;
+                    starPos.y=rect.top + Star.all[counter].y;
+
+                    if(Math.sqrt((starPos.x-mouseX)*(starPos.x-mouseX)+ 
+                                 (starPos.y-mouseY)*(starPos.y-mouseY)
+                                ) < 30){
+                                                        
+                        if(!Star.all[counter].checkclicked){
+                            
+                        
+                            Star.all[counter].checkclicked=true;
+                            starAudio.play();
+                            pointCounter++;
+                            $("#pointBoard").text(pointCounter);
+                        // starNow.x=-500;
+                        // starNow.y=-500;
+                        }
+                    }                    
+                
+                    
+                    
+                }catch(e){
+                //do nothing
+                    
+                }
+                
+                }
+
+    
+            }
+            
+             
+             
+            // function getStarMousePos(canvas, event) {
+            //     var rect = canvas.getBoundingClientRect();
+                
+            //     try{
+            //         return {
+            //           x: rect.left + starNow.x,
+            //           y: rect.top  + starNow.y
+            //         };                    
+                    
+            //     }catch(e){
+                    
+                    
+            //     }
+
+            // }         
+             
+         
+
+            
+            var fired = false;   //flag for press once detection
+            var time4;
+            document.onkeydown = function(evt) {
+                if(!fired && evt.keyCode==39) {             //if excute as fire==false
+                    fired = true;
+                    // do something
+                    time4 = setInterval(function(){
+                        backgroundImageXLocation+=3;
+                        $("#bannerImage").attr("style","left: -"+backgroundImageXLocation+"%" );
+                    
+                    },300);                    
+                }else if(!fired && evt.keyCode==37){
+                    
+                    fired = true;
+                    // do something
+                    time4 = setInterval(function(){
+                        backgroundImageXLocation-=3;
+                        $("#bannerImage").attr("style","left: -"+backgroundImageXLocation+"%" );
+                    
+                    },300);                      
+
+                }
+            };
+
+            document.onkeyup = function(evt) {
+                    if(evt.keyCode==39 || evt.keyCode==37){     //without this would cause trigger by all the keybotton
+                        fired = false;
+                        clearInterval(time4);
+                    }
+                    
+            };
+
+        }
+
+
+
+        //每個timeinterval 走的距離，2，因為矩陣中間是折返點
+        function creatXPostionMatrix(startPoint,endPoint,moveStep){
+            
+            var xPostionMatrix=[];
+            
+            var stepPixel = (endPoint - startPoint) / moveStep * 2;
+            for (var i = 0; i < moveStep / 2; i++) {
+
+
+                xPostionMatrix[i] = startPoint + i * stepPixel + "%";
+                xPostionMatrix[moveStep - 1 - i] = startPoint + i * stepPixel + "%";
+
+            }
+            return xPostionMatrix;
+        } 
+
+
+
+        //全部暫停setInter事件，用在結束遊戲
+        
+        function clearAllInterval() {
+
+            var highestIntervalId = setInterval(";");
+
+            for (var i = 0; i < highestIntervalId; i++) {
+                clearInterval(i);
+            }
+
+        }
+
+
+        function timeOutEvent() {
+
+            clearAllInterval();
+
+        }
+        
+        
+        // //useless
+        // function sleep(anchor,milliseconds) {
+        //   var start = new Date().getTime();
+        //   anchor.addClass("imgDisappear");
+        //   for (var i = 0; i < 1e7; i++) {
+        //     if ((new Date().getTime() - start) > milliseconds){
+        //       break;
+        //     }
+        //   }
+        // }
+        
+        Star.all=[];
+        
+        function Star(x, y, r, p, m,starColor,ctx){
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.p = p;
+            this.m = m;
+            this.starColor = starColor;
+            this.ctx = ctx;
+            this.checkclicked=false;
+            Star.all.push(this);
+            
+            
+            
+            this.draw = function (){
+                            
+                            this.ctx.save();
+                            this.ctx.beginPath();
+                            this.ctx.translate(this.x, this.y);
+                            this.ctx.fillStyle=starColor;
+                            this.ctx.moveTo(0,0-this.r);
+                            for (var i = 0; i < this.p; i++)
+                            {
+                                this.ctx.rotate(Math.PI / this.p);
+                                this.ctx.lineTo(0, 0 - (this.r*this.m));
+                                this.ctx.rotate(Math.PI / this.p);
+                                this.ctx.lineTo(0, 0 - this.r);
+                            }
+                            this.ctx.fill();
+                            this.ctx.restore();
+
+                        };
+                        
+            this.remove = function(){
+                          Star.all.splice(Star.all.indexOf(this), 1);         
+                          }
+            
+        }
+
+
+
+        
+        Star.drawAll=function(){
+            
+            
+
+            
+            for(var i =0; i <Star.all.length;i++)
+            {
+                
+
+                if(Star.all[i].checkclicked==false){
+                    Star.all[i].draw();
+
+                }
+                
+            }
+            
+        }
+
+        
+    </script>
+
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script> //讀不到.modal();-->
+</body>
+
+</html>

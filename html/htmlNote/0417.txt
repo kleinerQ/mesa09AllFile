@@ -1,0 +1,10 @@
+﻿圖片也有onload事件
+javaScript 預設是global變數
+PHP預設是區域變數
+http://      可以用//代替
+https://
+
+try{}catch(e){如果失敗的話do}
+console.log
+debugger
+

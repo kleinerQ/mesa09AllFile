@@ -1,0 +1,11 @@
+﻿前後端分離
+debug.innerText(s); 
+cordova
+
+HOME BOX例子
+
+$.get("https://lab-chih-yen.c9users.io/180416/Lab_AJAX/getLetterNumber.php?letter=" + s ,function(data){
+				
+				$("#letterNumber").append(data);		
+				
+			});

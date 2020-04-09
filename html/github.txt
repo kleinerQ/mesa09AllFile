@@ -1,0 +1,10 @@
+﻿git pull https://github.com/kleinerQ/iosClass --allow-unrelated-histories
+
+資料夾反灰
+问题已解决，是因为子文件夹下还有git仓库，删掉就好了。
+
+因为该文件夹已经被纳入了版本管理中，
+先清空该文件夹的本地缓存然后再添加就行了
+git rm -r --cached path
+
+git reset --hard HEAD~1     //remove the commit

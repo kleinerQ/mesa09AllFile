@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Exercises</title>
+	
+<script>
+
+function Button1_onclick() {
+	
+	var inputNum=txt1.value;
+	var inputMark=txt2.value;
+	//var s = "零壹貳參肆伍陸柒捌玖"
+	inputNum = parseInt(inputNum);
+	debug.innerHTML=printStar(inputNum,inputMark);
+}
+
+
+// function numConvertChar(num){
+    
+//     var s = "零壹貳參肆伍陸柒捌玖";
+//     return s.substr(num,1);
+    
+// }
+
+function printStar(rowNum,mark){
+    var outputChar="";
+    for (var i=0; i < rowNum; i++){
+        var starCount=0;
+        while( (starCount-1)< i){
+            
+            outputChar=outputChar + mark;
+            starCount++;
+        }
+        
+        outputChar=outputChar + "<br>";
+        
+    }
+    return outputChar;
+    
+}
+
+
+    
+
+</script>
+
+
+</head>
+<body>
+ 	希望有幾列:
+	<input type="text" id="txt1" name="txt1" value="5" PlaceHolder="Keyin something" size="40">
+
+	<br><br>
+	希望印出的符號:
+    <INPUT type="text" id="txt2"  name="txt2" value="*" size="40">
+    
+    <br><br>
+	<input type="button" id="Button1" name="Button1"   
+		value="2. 點我一下，執行 JavaScript" onclick="Button1_onclick()">
+	<br><br>	
+	
+    <div id="debug"></div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />  
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <head>
+        <style>
+        
+        select{
+            width:100px;
+            margin:10px;
+            font-size:20px;
+        }
+        
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div>
+                In-Call:
+                <label>張數</label>
+                <select id="inCallNumber">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <label>金額</label>
+                <select id="inCallMoney">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+            </div>
+        
+            
+         
+            
+            <div>
+                Out-Call:
+                <label>張數</label>
+                <select id="outCallNumber">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <label>金額</label>
+                <select id="outCallMoney">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+            </div>
+        
+
+            <div>
+                In-Put:
+                <label>張數</label>
+                <select id="inPutNumber">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <label>金額</label>
+                <select id="inPutMoney">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+            </div> 
+
+
+
+
+            
+            <div>
+                Out-Put:
+                <label>張數</label>
+                <select id="outPutNumber">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+                <label>金額</label>
+                <select id="outPutMoney">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+            </div>            
+            
+            <button type="button" id="confirmButton" style="width:200px;height:40px">Enter</button>
+            <a href="http://www.taifex.com.tw/chinese/3/7_12_3.asp" target="_blank" style="margin:0 20px;">期貨</a>
+            <a href="http://www.taifex.com.tw/chinese/3/7_12_4.asp" target="_blank">選擇權</a>
+            <div >
+                In-Call:<div id="inCallResult" ></div>
+            </div>
+            
+            <div>
+                In-Put:
+                <div id="inPutResult"></div>
+            </div>            
+            <div>
+                Out-Call:
+                <div id="outCallResult"></div>
+            </div>
+            
+            <div>
+                Out-Put:
+                <div id="outPutResult"></div>
+            </div>    
+            
+            
+            
+            
+            
+
+        </div>
+        
+        <script type="text/javascript">
+
+        $("#confirmButton").click(function(){
+           if(      $("#inCallNumber").val()=="+" && $("#inCallMoney").val()=="+"){
+                        $("#inCallResult").text("BC 部位增加");
+                        $("#inCallResult").attr("style","color:red;display:inline;");
+           }else if($("#inCallNumber").val()=="+" && $("#inCallMoney").val()=="-" ){
+                        $("#inCallResult").text("價內SC 部位增加、價外SC 部位減少");
+                        $("#inCallResult").attr("style","color:green;display:inline;");               
+           }else if($("#inCallNumber").val()=="-" && $("#inCallMoney").val()=="+" ){
+                        $("#inCallResult").text("價內SC 部位減少、價外SC 部位增加");
+                        $("#inCallResult").attr("style","color:red;display:inline;");               
+           }else if($("#inCallNumber").val()=="-" && $("#inCallMoney").val()=="-" ){
+                        $("#inCallResult").text("SC 部位增加");
+                        $("#inCallResult").attr("style","color:green;display:inline;");               
+           }
+            
+
+           if(      $("#inPutNumber").val()=="+" && $("#inPutMoney").val()=="+"){
+                        $("#inPutResult").text("SP 部位減少");
+                        $("#inPutResult").attr("style","color:green;display:inline;");
+           }else if($("#inPutNumber").val()=="+" && $("#inPutMoney").val()=="-" ){
+                        $("#inPutResult").text("價低SP 部位減少、價高SP 部位增加");
+                        $("#inPutResult").attr("style","color:red;display:inline;");               
+           }else if($("#inPutNumber").val()=="-" && $("#inPutMoney").val()=="+" ){
+                        $("#inPutResult").text("價低SP 部位增加、價高SP 部位減少");
+                        $("#inPutResult").attr("style","color:green;display:inline;");               
+           }else if($("#inPutNumber").val()=="-" && $("#inPutMoney").val()=="-" ){
+                        $("#inPutResult").text("SP 部位增加");
+                        $("#inPutResult").attr("style","color:red;display:inline;");               
+           }
+
+
+
+           if(      $("#outCallNumber").val()=="+" && $("#outCallMoney").val()=="+"){
+                        $("#outCallResult").text("BC 部位增加");
+                        $("#outCallResult").attr("style","color:red;display:inline;");
+           }else if($("#outCallNumber").val()=="+" && $("#outCallMoney").val()=="-" ){
+                        $("#outCallResult").text("價低BC 部位增加、價高BC 部位減少");
+                        $("#outCallResult").attr("style","color:green;display:inline;");               
+           }else if($("#outCallNumber").val()=="-" && $("#outCallMoney").val()=="+" ){
+                        $("#outCallResult").text("價低BC 部位減少、價高BC 部位增加");
+                        $("#outCallResult").attr("style","color:red;display:inline;");               
+           }else if($("#outCallNumber").val()=="-" && $("#outCallMoney").val()=="-" ){
+                        $("#outCallResult").text("BC 部位減少");
+                        $("#outCallResult").attr("style","color:green;display:inline;");               
+           }
+            
+
+           if(      $("#outPutNumber").val()=="+" && $("#outPutMoney").val()=="+"){
+                        $("#outPutResult").text("BP 部位增加");
+                        $("#outPutResult").attr("style","color:green;display:inline;");
+           }else if($("#outPutNumber").val()=="+" && $("#outPutMoney").val()=="-" ){
+                        $("#outPutResult").text("價內BP 部位減少、價外BP 部位增加");
+                        $("#outPutResult").attr("style","color:red;display:inline;");               
+           }else if($("#outPutNumber").val()=="-" && $("#outPutMoney").val()=="+" ){
+                        $("#outPutResult").text("價內BP 部位增加、價外BP 部位減少");
+                        $("#outPutResult").attr("style","color:green;display:inline;");               
+           }else if($("#outPutNumber").val()=="-" && $("#outPutMoney").val()=="-" ){
+                        $("#outPutResult").text("BP 部位減少");
+                        $("#outPutResult").attr("style","color:red;display:inline;");               
+           }
+
+            
+        });
+
+
+
+        </script>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.toast.js"></script>         
+        
+        
+        
+    </body>
+    
+    
+    
+</html>

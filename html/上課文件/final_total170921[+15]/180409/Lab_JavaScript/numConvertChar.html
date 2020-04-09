@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Exercises</title>
+	
+<script>
+
+function Button1_onclick() {
+	// var s = new String("0123456789中文字");
+	var inputNum=txt1.value;
+	
+	//var s = "零壹貳參肆伍陸柒捌玖"
+	inputNum = parseInt(inputNum);
+	//txt1.value = printStar(inputNum);  // A
+	
+	
+	var tenThousandValue = numberExtration(inputNum,10000);
+	var thousandValue = numberExtration(inputNum,1000);
+	var hundredValue = numberExtration(inputNum,100); 
+	var tenValue = numberExtration(inputNum,10); 
+	var firstDigitValue = numberExtration(inputNum,1); 
+	
+	var outputChar;
+	
+	outputChar = numConvertChar(tenThousandValue) + "萬";
+	outputChar = outputChar +numConvertChar(thousandValue) + "仟";
+	outputChar = outputChar + numConvertChar(hundredValue) + "佰";
+	outputChar = outputChar + numConvertChar(tenValue) + "拾";
+	outputChar = outputChar + numConvertChar(firstDigitValue) ;
+	txt2.value = outputChar;
+
+}
+
+
+function thousandHundredtenCount(data){
+	
+	var outputchar="";
+	outputchar = outputchar +numConvertChar(thousandValue) + "仟";
+	outputchar = outputchar + numConvertChar(hundredValue) + "佰";
+	outputchar = outputchar + numConvertChar(tenValue) + "拾";
+	outputchar = outputchar + numConvertChar(firstDigitValue) ;	
+	
+	
+}
+
+
+
+function numberExtration(inputNum,extractionDigit){
+    
+    
+    return Math.floor(inputNum%(extractionDigit*10)/extractionDigit);
+    
+}
+
+
+
+function numConvertChar(num){
+    
+    var s = "零壹貳參肆伍陸柒捌玖";
+    return s.substr(num,1);
+    
+}
+
+
+
+
+    
+
+</script>
+
+
+</head>
+<body>
+ 	阿拉伯數字:
+	<input type="text" id="txt1" name="txt1" value="2398" PlaceHolder="Keyin something" size="40">
+
+	<br><br>
+	對應國字:
+    <INPUT type="text" id="txt2"  name="txt2" value="0" size="40">
+    
+    <br><br>
+	<input type="button" id="Button1" name="Button1"   
+		value="2. 點我一下，執行 JavaScript" onclick="Button1_onclick()">
+	<br><br>	
+	
+    <div id="debug"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Exercises</title>
+	
+<script>
+
+
+function Button1_onclick() {
+	
+	var height=txt1.value;
+	var rebounceTime=txt2.value;
+	//var s = "零壹貳參肆伍陸柒捌玖"
+	height = parseInt(height);
+	rebounceTime = parseInt(rebounceTime);
+	debug.innerHTML=rebounce(height,rebounceTime);
+}
+
+
+// function numConvertChar(num){
+    
+//     var s = "零壹貳參肆伍陸柒捌玖";
+//     return s.substr(num,1);
+    
+// }
+
+function rebounce(height,rebounceTime){
+    var height;
+    for(var i =0; i < rebounceTime; i++){
+        
+       height=height/2;
+        
+    }
+    return height;
+}
+
+
+    debug.innerHTML=123;
+
+</script>
+
+
+</head>
+<body>
+ 	初始高度:
+	<input type="text" id="txt1" name="txt1" value="100" PlaceHolder="Keyin something" size="40">
+
+	<br><br>
+	反彈次數:
+    <INPUT type="text" id="txt2"  name="txt2" value="5" size="40">
+    
+    <br><br>
+	<input type="button" id="Button1" name="Button1"   
+		value="2. 點我一下，執行 JavaScript" onclick="Button1_onclick()">
+	<br><br>	
+	
+	反彈後最後高度:
+    <div id="debug" value ="test"></div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+canvas
+江老師演算法
+fill 跟框有關
+stroke 跟畫筆有關
+three.js 3D效果
+.onload(){
+//網頁載入的時候應該要做的動作
+}
+.toDataURL //  base64

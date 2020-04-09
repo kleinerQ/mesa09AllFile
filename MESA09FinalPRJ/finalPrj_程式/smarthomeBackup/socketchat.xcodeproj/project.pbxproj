@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8416F7D720EE0BEB008F8032 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416F7D620EE0BEB008F8032 /* PopoverViewController.swift */; };
+		842BCC1E20F6E02500F9C6B5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BCC1D20F6E02500F9C6B5 /* FirstViewController.swift */; };
+		842BCC2220F7058B00F9C6B5 /* MemberNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BCC2120F7058B00F9C6B5 /* MemberNavigationController.swift */; };
+		842BCC3520F71CE200F9C6B5 /* StreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BCC3420F71CE200F9C6B5 /* StreamingViewController.swift */; };
+		842BCC3720F71D5400F9C6B5 /* IbeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BCC3620F71D5400F9C6B5 /* IbeaconViewController.swift */; };
+		842BCC3920F726E000F9C6B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842BCC3820F726E000F9C6B5 /* Assets.xcassets */; };
+		842BCC3B20F746D000F9C6B5 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BCC3A20F746D000F9C6B5 /* BottomBorderTextField.swift */; };
+		843D2EC020ECA4DD009D25C7 /* PermissionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D2EBF20ECA4DD009D25C7 /* PermissionSettingViewController.swift */; };
+		843D2EC220ECBC02009D25C7 /* PermissionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D2EC120ECBC02009D25C7 /* PermissionPickerViewController.swift */; };
+		8440557D20F60B3F00427C42 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440557C20F60B3F00427C42 /* CircleButton.swift */; };
+		8461BE1120F2F4EB007CE490 /* MessageBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461BE0F20F2F4EB007CE490 /* MessageBoardTableViewCell.swift */; };
+		8461BE1220F2F4EB007CE490 /* MessageBoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8461BE1020F2F4EB007CE490 /* MessageBoardTableViewCell.xib */; };
+		8461BE1620F2F565007CE490 /* MessageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461BE1520F2F565007CE490 /* MessageBoardViewController.swift */; };
+		8461BE1820F30FAD007CE490 /* MessagePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461BE1720F30FAD007CE490 /* MessagePopoverViewController.swift */; };
+		8461BE1A20F334DF007CE490 /* AddMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461BE1920F334DF007CE490 /* AddMessageViewController.swift */; };
+		8461BE3A20F37185007CE490 /* MessageAndChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461BE3920F37185007CE490 /* MessageAndChatViewController.swift */; };
+		846D8B7F20F47CE80049CE6E /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D8B7D20F47CE80049CE6E /* ChatTableViewCell.swift */; };
+		846D8B8020F47CE80049CE6E /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D8B7E20F47CE80049CE6E /* ChatTableViewCell.xib */; };
+		84A6F2A020E9B386004EBF90 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A6F29F20E9B386004EBF90 /* LocalAuthentication.framework */; };
+		84A6F2A220E9BBFD004EBF90 /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6F2A120E9BBFD004EBF90 /* TouchID.swift */; };
+		84B2507220E1CB490046146A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2507120E1CB490046146A /* AppDelegate.swift */; };
+		84B2507420E1CB490046146A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2507320E1CB490046146A /* ViewController.swift */; };
+		84B2507720E1CB490046146A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2507520E1CB490046146A /* Main.storyboard */; };
+		84B2507C20E1CB4A0046146A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2507A20E1CB4A0046146A /* LaunchScreen.storyboard */; };
+		84C571F620E36BE800D9DBEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C571F520E36BE800D9DBEA /* LoginViewController.swift */; };
+		84C571F820E36C0400D9DBEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C571F720E36C0400D9DBEA /* SignUpViewController.swift */; };
+		84D227D220E6033200BE498A /* ChatTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D227D120E6033200BE498A /* ChatTextLabel.swift */; };
+		84E8F7D020EB1F9F005BB4A1 /* MemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8F7CF20EB1F9F005BB4A1 /* MemberTableViewController.swift */; };
+		84E8F7D220EB2A98005BB4A1 /* SelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8F7D120EB2A98005BB4A1 /* SelectButton.swift */; };
+		84E8F7F020EB4DE7005BB4A1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8F7EF20EB4DE7005BB4A1 /* Global.swift */; };
+		F42272E721008C7800CBCDDE /* GlobalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42272E621008C7800CBCDDE /* GlobalParameter.swift */; };
+		F42272E921008CFD00CBCDDE /* myBtnRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42272E821008CFD00CBCDDE /* myBtnRecordViewController.swift */; };
+		F42272EB21008D3900CBCDDE /* IOT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42272EA21008D3900CBCDDE /* IOT.storyboard */; };
+		F44103AC21002E4E00A91BB4 /* UpdateUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44103AB21002E4E00A91BB4 /* UpdateUserNameViewController.swift */; };
+		F4CA3F8F20FDDAEA00844464 /* OnlineIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA3F8E20FDDAEA00844464 /* OnlineIconLabel.swift */; };
+		F4D3D8D720FECD5A00FD4DD6 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8D620FECD5A00FD4DD6 /* UnlockViewController.swift */; };
+		F4D3D8D920FECD9500FD4DD6 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8D820FECD9500FD4DD6 /* CircleViewController.swift */; };
+		F4D3D8DB20FECDC000FD4DD6 /* BreakInPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8DA20FECDC000FD4DD6 /* BreakInPhotoViewController.swift */; };
+		F4D3D8DD20FECE4600FD4DD6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8DC20FECE4600FD4DD6 /* TabBarViewController.swift */; };
+		F4D3D8DF20FF1B5500FD4DD6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8DE20FF1B5500FD4DD6 /* SettingViewController.swift */; };
+		F4D3D8E120FF319300FD4DD6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8E020FF319300FD4DD6 /* TestViewController.swift */; };
+		F4D3D8E320FF385A00FD4DD6 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8E220FF385A00FD4DD6 /* CircleImage.swift */; };
+		F4D3D8E620FF497900FD4DD6 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D8E520FF497900FD4DD6 /* MainNavigationController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8416F7D620EE0BEB008F8032 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		842BCC1D20F6E02500F9C6B5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		842BCC2120F7058B00F9C6B5 /* MemberNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemberNavigationController.swift; path = MemberControl/MemberNavigationController.swift; sourceTree = "<group>"; };
+		842BCC3420F71CE200F9C6B5 /* StreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingViewController.swift; sourceTree = "<group>"; };
+		842BCC3620F71D5400F9C6B5 /* IbeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbeaconViewController.swift; sourceTree = "<group>"; };
+		842BCC3820F726E000F9C6B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		842BCC3A20F746D000F9C6B5 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
+		843D2EBF20ECA4DD009D25C7 /* PermissionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionSettingViewController.swift; sourceTree = "<group>"; };
+		843D2EC120ECBC02009D25C7 /* PermissionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPickerViewController.swift; sourceTree = "<group>"; };
+		8440557C20F60B3F00427C42 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		8461BE0F20F2F4EB007CE490 /* MessageBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoardTableViewCell.swift; sourceTree = "<group>"; };
+		8461BE1020F2F4EB007CE490 /* MessageBoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBoardTableViewCell.xib; sourceTree = "<group>"; };
+		8461BE1520F2F565007CE490 /* MessageBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoardViewController.swift; sourceTree = "<group>"; };
+		8461BE1720F30FAD007CE490 /* MessagePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopoverViewController.swift; sourceTree = "<group>"; };
+		8461BE1920F334DF007CE490 /* AddMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageViewController.swift; sourceTree = "<group>"; };
+		8461BE3920F37185007CE490 /* MessageAndChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAndChatViewController.swift; sourceTree = "<group>"; };
+		846D8B7D20F47CE80049CE6E /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		846D8B7E20F47CE80049CE6E /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		849BE85C20EF48310009FD47 /* socketchat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = socketchat.entitlements; sourceTree = "<group>"; };
+		84A6F29F20E9B386004EBF90 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		84A6F2A120E9BBFD004EBF90 /* TouchID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
+		84B2506E20E1CB490046146A /* socketchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socketchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B2507120E1CB490046146A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84B2507320E1CB490046146A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84B2507620E1CB490046146A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84B2507B20E1CB4A0046146A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84B2507D20E1CB4A0046146A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C571F520E36BE800D9DBEA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84C571F720E36C0400D9DBEA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84D227D120E6033200BE498A /* ChatTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextLabel.swift; sourceTree = "<group>"; };
+		84E8F7CF20EB1F9F005BB4A1 /* MemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewController.swift; sourceTree = "<group>"; };
+		84E8F7D120EB2A98005BB4A1 /* SelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButton.swift; sourceTree = "<group>"; };
+		84E8F7EF20EB4DE7005BB4A1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		F42272E621008C7800CBCDDE /* GlobalParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalParameter.swift; sourceTree = "<group>"; };
+		F42272E821008CFD00CBCDDE /* myBtnRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myBtnRecordViewController.swift; sourceTree = "<group>"; };
+		F42272EA21008D3900CBCDDE /* IOT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOT.storyboard; sourceTree = "<group>"; };
+		F44103AB21002E4E00A91BB4 /* UpdateUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameViewController.swift; sourceTree = "<group>"; };
+		F4CA3F8E20FDDAEA00844464 /* OnlineIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineIconLabel.swift; sourceTree = "<group>"; };
+		F4D3D8D620FECD5A00FD4DD6 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
+		F4D3D8D820FECD9500FD4DD6 /* CircleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
+		F4D3D8DA20FECDC000FD4DD6 /* BreakInPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakInPhotoViewController.swift; sourceTree = "<group>"; };
+		F4D3D8DC20FECE4600FD4DD6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		F4D3D8DE20FF1B5500FD4DD6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F4D3D8E020FF319300FD4DD6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		F4D3D8E220FF385A00FD4DD6 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		F4D3D8E520FF497900FD4DD6 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84B2506B20E1CB490046146A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A6F2A020E9B386004EBF90 /* LocalAuthentication.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		842BCC2320F71AF800F9C6B5 /* IOT */ = {
+			isa = PBXGroup;
+			children = (
+				F42272EA21008D3900CBCDDE /* IOT.storyboard */,
+				842BCC3420F71CE200F9C6B5 /* StreamingViewController.swift */,
+				842BCC3620F71D5400F9C6B5 /* IbeaconViewController.swift */,
+				F4D3D8D620FECD5A00FD4DD6 /* UnlockViewController.swift */,
+				F4D3D8D820FECD9500FD4DD6 /* CircleViewController.swift */,
+				F4D3D8DA20FECDC000FD4DD6 /* BreakInPhotoViewController.swift */,
+				F4D3D8DC20FECE4600FD4DD6 /* TabBarViewController.swift */,
+				F42272E621008C7800CBCDDE /* GlobalParameter.swift */,
+				F42272E821008CFD00CBCDDE /* myBtnRecordViewController.swift */,
+			);
+			path = IOT;
+			sourceTree = "<group>";
+		};
+		84810AFC20F4408E001924F0 /* MessageBoard */ = {
+			isa = PBXGroup;
+			children = (
+				8461BE0F20F2F4EB007CE490 /* MessageBoardTableViewCell.swift */,
+				8461BE1020F2F4EB007CE490 /* MessageBoardTableViewCell.xib */,
+				8461BE1520F2F565007CE490 /* MessageBoardViewController.swift */,
+				8461BE1720F30FAD007CE490 /* MessagePopoverViewController.swift */,
+				846D8B7D20F47CE80049CE6E /* ChatTableViewCell.swift */,
+				846D8B7E20F47CE80049CE6E /* ChatTableViewCell.xib */,
+				8461BE1920F334DF007CE490 /* AddMessageViewController.swift */,
+				8461BE3920F37185007CE490 /* MessageAndChatViewController.swift */,
+			);
+			path = MessageBoard;
+			sourceTree = "<group>";
+		};
+		84810AFD20F440B0001924F0 /* MemberControl */ = {
+			isa = PBXGroup;
+			children = (
+				84E8F7CF20EB1F9F005BB4A1 /* MemberTableViewController.swift */,
+				843D2EBF20ECA4DD009D25C7 /* PermissionSettingViewController.swift */,
+				843D2EC120ECBC02009D25C7 /* PermissionPickerViewController.swift */,
+				8416F7D620EE0BEB008F8032 /* PopoverViewController.swift */,
+				F4CA3F8E20FDDAEA00844464 /* OnlineIconLabel.swift */,
+			);
+			path = MemberControl;
+			sourceTree = "<group>";
+		};
+		84A6F29E20E9B385004EBF90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A6F29F20E9B386004EBF90 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84B2506520E1CB490046146A = {
+			isa = PBXGroup;
+			children = (
+				84B2507020E1CB490046146A /* socketchat */,
+				84B2506F20E1CB490046146A /* Products */,
+				84A6F29E20E9B385004EBF90 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84B2506F20E1CB490046146A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84B2506E20E1CB490046146A /* socketchat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84B2507020E1CB490046146A /* socketchat */ = {
+			isa = PBXGroup;
+			children = (
+				842BCC2320F71AF800F9C6B5 /* IOT */,
+				849BE85C20EF48310009FD47 /* socketchat.entitlements */,
+				84B2507120E1CB490046146A /* AppDelegate.swift */,
+				84B2507320E1CB490046146A /* ViewController.swift */,
+				F4D3D8E520FF497900FD4DD6 /* MainNavigationController.swift */,
+				842BCC3820F726E000F9C6B5 /* Assets.xcassets */,
+				84B2507520E1CB490046146A /* Main.storyboard */,
+				84B2507A20E1CB4A0046146A /* LaunchScreen.storyboard */,
+				84B2507D20E1CB4A0046146A /* Info.plist */,
+				84C571F520E36BE800D9DBEA /* LoginViewController.swift */,
+				84C571F720E36C0400D9DBEA /* SignUpViewController.swift */,
+				84D227D120E6033200BE498A /* ChatTextLabel.swift */,
+				84E8F7D120EB2A98005BB4A1 /* SelectButton.swift */,
+				84A6F2A120E9BBFD004EBF90 /* TouchID.swift */,
+				842BCC3A20F746D000F9C6B5 /* BottomBorderTextField.swift */,
+				84E8F7EF20EB4DE7005BB4A1 /* Global.swift */,
+				F4D3D8DE20FF1B5500FD4DD6 /* SettingViewController.swift */,
+				F44103AB21002E4E00A91BB4 /* UpdateUserNameViewController.swift */,
+				8440557C20F60B3F00427C42 /* CircleButton.swift */,
+				F4D3D8E220FF385A00FD4DD6 /* CircleImage.swift */,
+				842BCC1D20F6E02500F9C6B5 /* FirstViewController.swift */,
+				84810AFD20F440B0001924F0 /* MemberControl */,
+				84810AFC20F4408E001924F0 /* MessageBoard */,
+				842BCC2120F7058B00F9C6B5 /* MemberNavigationController.swift */,
+				F4D3D8E020FF319300FD4DD6 /* TestViewController.swift */,
+			);
+			path = socketchat;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84B2506D20E1CB490046146A /* socketchat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B2508020E1CB4A0046146A /* Build configuration list for PBXNativeTarget "socketchat" */;
+			buildPhases = (
+				84B2506A20E1CB490046146A /* Sources */,
+				84B2506B20E1CB490046146A /* Frameworks */,
+				84B2506C20E1CB490046146A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = socketchat;
+			productName = socketchat;
+			productReference = 84B2506E20E1CB490046146A /* socketchat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84B2506620E1CB490046146A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Simon Chang";
+				TargetAttributes = {
+					84B2506D20E1CB490046146A = {
+						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 84B2506920E1CB490046146A /* Build configuration list for PBXProject "socketchat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84B2506520E1CB490046146A;
+			productRefGroup = 84B2506F20E1CB490046146A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84B2506D20E1CB490046146A /* socketchat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84B2506C20E1CB490046146A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B2507C20E1CB4A0046146A /* LaunchScreen.storyboard in Resources */,
+				846D8B8020F47CE80049CE6E /* ChatTableViewCell.xib in Resources */,
+				8461BE1220F2F4EB007CE490 /* MessageBoardTableViewCell.xib in Resources */,
+				84B2507720E1CB490046146A /* Main.storyboard in Resources */,
+				842BCC3920F726E000F9C6B5 /* Assets.xcassets in Resources */,
+				F42272EB21008D3900CBCDDE /* IOT.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84B2506A20E1CB490046146A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A6F2A220E9BBFD004EBF90 /* TouchID.swift in Sources */,
+				F4D3D8E320FF385A00FD4DD6 /* CircleImage.swift in Sources */,
+				8461BE3A20F37185007CE490 /* MessageAndChatViewController.swift in Sources */,
+				F4D3D8E620FF497900FD4DD6 /* MainNavigationController.swift in Sources */,
+				F4D3D8D920FECD9500FD4DD6 /* CircleViewController.swift in Sources */,
+				842BCC2220F7058B00F9C6B5 /* MemberNavigationController.swift in Sources */,
+				F4D3D8DB20FECDC000FD4DD6 /* BreakInPhotoViewController.swift in Sources */,
+				F4D3D8DF20FF1B5500FD4DD6 /* SettingViewController.swift in Sources */,
+				843D2EC220ECBC02009D25C7 /* PermissionPickerViewController.swift in Sources */,
+				846D8B7F20F47CE80049CE6E /* ChatTableViewCell.swift in Sources */,
+				8416F7D720EE0BEB008F8032 /* PopoverViewController.swift in Sources */,
+				84E8F7D220EB2A98005BB4A1 /* SelectButton.swift in Sources */,
+				84C571F620E36BE800D9DBEA /* LoginViewController.swift in Sources */,
+				F4CA3F8F20FDDAEA00844464 /* OnlineIconLabel.swift in Sources */,
+				84B2507420E1CB490046146A /* ViewController.swift in Sources */,
+				842BCC3720F71D5400F9C6B5 /* IbeaconViewController.swift in Sources */,
+				8461BE1A20F334DF007CE490 /* AddMessageViewController.swift in Sources */,
+				84E8F7F020EB4DE7005BB4A1 /* Global.swift in Sources */,
+				84E8F7D020EB1F9F005BB4A1 /* MemberTableViewController.swift in Sources */,
+				8461BE1620F2F565007CE490 /* MessageBoardViewController.swift in Sources */,
+				842BCC3B20F746D000F9C6B5 /* BottomBorderTextField.swift in Sources */,
+				F4D3D8DD20FECE4600FD4DD6 /* TabBarViewController.swift in Sources */,
+				843D2EC020ECA4DD009D25C7 /* PermissionSettingViewController.swift in Sources */,
+				8461BE1120F2F4EB007CE490 /* MessageBoardTableViewCell.swift in Sources */,
+				842BCC3520F71CE200F9C6B5 /* StreamingViewController.swift in Sources */,
+				F4D3D8E120FF319300FD4DD6 /* TestViewController.swift in Sources */,
+				F42272E721008C7800CBCDDE /* GlobalParameter.swift in Sources */,
+				8440557D20F60B3F00427C42 /* CircleButton.swift in Sources */,
+				F44103AC21002E4E00A91BB4 /* UpdateUserNameViewController.swift in Sources */,
+				842BCC1E20F6E02500F9C6B5 /* FirstViewController.swift in Sources */,
+				84B2507220E1CB490046146A /* AppDelegate.swift in Sources */,
+				F4D3D8D720FECD5A00FD4DD6 /* UnlockViewController.swift in Sources */,
+				8461BE1820F30FAD007CE490 /* MessagePopoverViewController.swift in Sources */,
+				84D227D220E6033200BE498A /* ChatTextLabel.swift in Sources */,
+				F42272E921008CFD00CBCDDE /* myBtnRecordViewController.swift in Sources */,
+				84C571F820E36C0400D9DBEA /* SignUpViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84B2507520E1CB490046146A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B2507620E1CB490046146A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84B2507A20E1CB4A0046146A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B2507B20E1CB4A0046146A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84B2507E20E1CB4A0046146A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84B2507F20E1CB4A0046146A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84B2508120E1CB4A0046146A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = socketchat/socketchat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76T5KWEPVV;
+				INFOPLIST_FILE = socketchat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Simon-Chang.-socketchat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		84B2508220E1CB4A0046146A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = socketchat/socketchat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76T5KWEPVV;
+				INFOPLIST_FILE = socketchat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Simon-Chang.-socketchat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84B2506920E1CB490046146A /* Build configuration list for PBXProject "socketchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B2507E20E1CB4A0046146A /* Debug */,
+				84B2507F20E1CB4A0046146A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84B2508020E1CB4A0046146A /* Build configuration list for PBXNativeTarget "socketchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B2508120E1CB4A0046146A /* Debug */,
+				84B2508220E1CB4A0046146A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84B2506620E1CB490046146A /* Project object */;
+}

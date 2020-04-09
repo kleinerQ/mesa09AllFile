@@ -1,0 +1,24 @@
+﻿玫君
+MESA09
+p@sswQrd
+
+cloud9
+錢達智 wolfgang.chien@gmail.com
+資策會-mesa09-嵌入式ios軟體開發人才養成班第9期
+
+.php
+是一個程式
+
+html5新元素Canvas
+在網頁上作圖
+canvas
+
+<a href >
+加target="_blank" 另開頁籤
+
+<hr>
+
+c9.io
+
+
+Github 了解

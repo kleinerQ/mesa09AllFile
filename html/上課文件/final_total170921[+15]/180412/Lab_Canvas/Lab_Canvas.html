@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    
+    <body>
+        
+        <canvas id="myCanvas" width="400px" height="300px" style="border:1px solid #000000;">
+            
+            
+
+           
+
+            
+        </canvas>
+        <script type="text/javascript" >
+        
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.strokeStyle = "#0000FF";
+            ctx.strokeRect(0, 0, 200, 50);     
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0, 35, 200, 15);
+            
+            ctx.moveTo(200,0);
+            ctx.lineTo(200,300);
+            ctx.moveTo(0,150);
+            ctx.lineTo(400,150);
+            ctx.stroke();
+            
+            ctx.font = "24px Arial italic";
+            ctx.textBaseline = "top";
+            ctx.textAlign = "center";
+            ctx.fillText("Signin Seal", 100, 5);
+            
+            ctx.fillStyle = "yellow";
+            ctx.textAlign="center";
+
+            ctx.font="8px Arial italic";
+            ctx.textBaseline = "top";
+            ctx.textAlign = "center";
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText("Powered by HTML5", 100, 35);  
+                        
+            ctx.fillStyle = "#FF00FF";
+            ctx.textBaseline="middle";
+            ctx.font="70px Georgia";
+            ctx.fillText("Test", 200 ,150);
+            ctx.globalCompositeOperation = "destination-over";
+            var grd = ctx.createLinearGradient(0, 0, 0, 50);
+            grd.addColorStop(0, "white");
+            grd.addColorStop(1, "#0000EE");
+            ctx.fillStyle = grd;
+            ctx.fillRect(0, 0, 200, 50);
+            
+                        
+        </script>
+
+                    
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">
+    <style>
+    
+    .buttonStyle{
+        margin-top:20px;
+      
+        
+        
+    }
+    #cancelButton{
+        
+        margin-left:15px;
+        
+    }
+    
+    </style>
+    
+    </head>
+    <body>
+        <div class="container ">
+            
+            
+            
+            <form class="form-horizontal" method="post" action="echo.php">
+                
+                <div class="form-group">
+                    <h2 class="col-md-offset-2 col-md-3">會員申請資料<h2>
+                    
+                </div>  
+                
+                <div class="form-group">
+                  <label class="col-md-2 control-label" for="idInput"><span class="glyphicon glyphicon-user"></span>UserID</label>  
+                  <div class="col-md-3">
+                  <input id="idInput" name="idInput" type="text" placeholder="ID(至少八字元，開頭非數字)" class="form-control input-md" pattern="([a-zA-Z])+[0-9a-zA-Z]{7,}">
+                    
+                  </div>
+                </div>                 
+                
+                <div class="form-group">
+                    
+                  <label class="col-md-2  control-label" for="passwordInput"><span class="glyphicon glyphicon-lock"></span>Password</label>
+                  <div class="col-md-3">
+                    <input id="passwordInput" name="passwordInput" type="password" placeholder="至少六碼，包含大小寫字母及數字" class="form-control input-md" pattern="^(?=^.{4,}$)((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.*">
+                    
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-md-2 control-label" for="emailInput"><span class="glyphicon glyphicon-inbox"></span>Email</label>  
+                  <div class="col-md-3">
+                  <input id="emailInput" name="emailInput" type="text" placeholder="Email Adresse" class="form-control input-md" pattern="\w+([.-]\w+)*@\w+([.]\w+)+">
+                    
+                  </div>
+                 </div> 
+
+
+                <div class="form-group">
+                  <label class="col-md-2 control-label" for="sign"><span class="glyphicon glyphicon-globe"></span>Constellations(Sign) </label>
+                  <div class="col-md-3">
+                    <select id="sign" name="sign" class="form-control">
+                      <option value="1">水瓶座 (1月21日 - 2月18日)</option>
+                      <option value="2">雙魚座 (2月19日 - 3月20日)</option>
+                      <option value="3">白羊座 (3月21日 - 4月19日)</option>
+                      <option value="4">金牛座 (4月21日 - 5月21日)</option>
+                      <option value="5">雙子座 (5月22日 - 6月21日)</option>
+                      <option value="6">巨蟹座 (6月22日 - 7月22日)</option>
+                      <option value="7" selected>獅子座 (7月23日 - 8月22日)</option>
+                      <option value="8">處女座 (8月23日 - 9月22日)</option>
+                      <option value="9">天秤座 (9月23日 - 10月23日)</option>
+                      <option value="10">天蠍座 (10月24日 - 11月21日)</option>
+                      <option value="11">射手座 (11月22日 - 12月20日)</option>
+                      <option value="12">魔羯座 (12月21日 - 1月20日)</option>
+                    </select>
+                  </div>
+                </div> 
+
+
+                 
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="gender"><span class="glyphicon glyphicon-heart"></span>Gender</label>
+                      <div class="col-md-4"> 
+                        <label class="radio-inline" for="gender-0">
+                          <input type="radio" name="gender" id="gender-0" value="1" checked="checked">
+                          男
+                        </label> 
+                        <label class="radio-inline" for="gender-1">
+                          <input type="radio" name="gender" id="gender-1" value="2">
+                          女
+                        </label> 
+                        <label class="radio-inline" for="gender-2">
+                          <input type="radio" name="gender" id="gender-2" value="3" checked>
+                          不告知
+                        </label>
+                      </div>                  
+                    </div>            
+                
+                <div class="form-group">
+                  <label class="col-md-2 control-label" for="button1id"></label>
+                  <div class="col-md-8 buttonStyle">
+                    <button type="submit" id="confirmButton" name="confirmOrCancel" class="btn btn-success" value="confirm"><span class="glyphicon glyphicon-cloud-upload">&nbsp送出</button>
+                    <button type="submit" id="cancelButton" name="confirmOrCancel" class="btn btn-danger" value="cancel"><span class="glyphicon glyphicon-remove-sign">&nbsp取消</button>
+                  </div>
+                </div>              
+                
+            </form>
+        </div>
+
+
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/jquery.toast.js"></script>       
+        
+    </body>
+</html>
+
+
+
+
+
+

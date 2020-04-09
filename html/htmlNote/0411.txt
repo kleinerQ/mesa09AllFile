@@ -1,0 +1,33 @@
+練習事件event- onclick
+<label> 功能
+for="idname" 自動連結
+client端用id
+後臺用name
+圓形勾選，name 相同，是同一組，只能選一個
+CRUD
+JSON
+
+登入對話框 Lab_BS_Model，可以看範例
+
+// 分隔
+<div class="row">
+	<div class="col_sm_1"></div>
+</div>
+
+學會用txt.1 讀資料 送出去
+onclick 功能
+
+要怎麼sumit:
+1. method="post" action="echo.php"
+2. 授權瀏覽器送資料
+ <input type="sumit button">  or <button type="sumit">
+3. 圓形選單name 都一樣，因為一次一組只有一個value 傳到後台
+4. checkbox 如果沒勾，後台收不到
+
+表單驗證Pattern Expression
+
+屬性名稱 屬性值-可以是function
+
+hw_180410_1_chihyen.html
+
+5. 

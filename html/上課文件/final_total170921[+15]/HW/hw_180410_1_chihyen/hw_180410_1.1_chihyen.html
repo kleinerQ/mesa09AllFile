@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Lottery</title>
+        
+    </head>
+    
+    
+    <body>
+        
+        
+        
+        <div id="debug"></div>
+        
+        <script type="text/javascript" >
+            var originalLotteryMatrix=[];
+            var maxPollNumber = 49;
+            var betNumber = 6;
+            
+            for (var i = 0; i< maxPollNumber; i++){
+                
+                originalLotteryMatrix[i] = i+1; 
+            }
+            //document.getElementById("debug").innerHTML = lotteryMatrix + "<br>";
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+            function randomMatrix(matrix, randomCount){
+                
+                for (var i = 0; i < randomCount; i++){
+                    
+                    var temp = matrix[0];
+                    var replaceIndex = Math.floor(Math.random()*matrix.length);
+                    matrix[0] = matrix[replaceIndex];
+                    matrix[replaceIndex] = temp;
+                    //document.getElementById("debug").innerHTML += matrix + "<br>";
+                    
+                }        
+                
+                //document.getElementById("debug").innerText += matrix + "<br>";
+                return matrix;
+            }
+            
+            //document.getElementById("debug").innerText=randomMatrix(lotteryMatrix,randomCount).slice(0,5);
+            //var replaceIndex = Math.floor(Math.random()*lotteryMatrix.length);
+
+            
+            //winNumber = lotteryMatrix.slice(0,5);
+            
+            document.getElementById("debug").innerHTML = "開獎號碼..." + "<br>";
+
+            var lotteryMatrix=[];
+            
+            for (var i = 0; i < betNumber; i++){
+                
+                var randomNumber = Math.floor(Math.random()*originalLotteryMatrix.length);
+                lotteryMatrix[i] = originalLotteryMatrix[randomNumber];
+                originalLotteryMatrix.splice(randomNumber,1);
+                //document.getElementById("debug").innerHTML += lotteryMatrix + "<br>";
+                
+            }
+
+            //document.getElementById("debug").innerHTML = lotteryMatrix + "<br>";
+            
+            
+            
+            for (var i = 0; i < betNumber ; i++){
+                
+                displayCommand = "displayResult(lotteryMatrix," + i +")";
+                setTimeout(displayCommand,1000*(i+1));
+                
+                if ( i == betNumber-1)
+                    setTimeout('document.getElementById("debug").innerHTML += "祝你中獎"', 1000*(i+2));
+               
+              //document.getElementById("debug").innerHTML += displayCommand;
+                
+            }
+            
+            
+            // setTimeout('displayResult(lotteryMatrix,1)',2000);
+            // setTimeout('displayResult(lotteryMatrix,2)',3000);
+            // setTimeout('displayResult(lotteryMatrix,3)',4000);
+            // setTimeout('displayResult(lotteryMatrix,4)',5000);
+            // setTimeout('displayResult(lotteryMatrix,5)',5000);
+            
+            
+            
+            function displayResult(matrix,order){
+               // document.getElementById("debug").innerHTML = "第"+ "order+1" + "開獎號碼:" + matrix[i] + "<br>";
+                
+                document.getElementById("debug").innerHTML += "第"+ (order+1) + "個開獎號碼:" + matrix[order] + "<br>";
+                
+            
+            }
+            
+            
+            
+            
+        </script>
+        
+    </body>
+    
+</html>

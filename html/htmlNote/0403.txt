@@ -1,0 +1,15 @@
+﻿background-repeat:repeat-x;
+list-style-type:none;
+1em=16px;
+www.w3schools.com
+
+position:
+absolute參考父階或祖階，往上找看誰的position不是static，不會占位子，原位置消失
+fix瀏覽器位置
+relative相對於自己原本位置，會占位子，原位子保留
+
+bootstrap
+
+試著增加dropdown增加
+
+role="button" 用處

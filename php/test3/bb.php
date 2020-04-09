@@ -1,0 +1,4 @@
+<?php
+unlink('bb.html');
+
+?> 

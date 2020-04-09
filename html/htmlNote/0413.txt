@@ -1,0 +1,19 @@
+class 類別
+可以自訂data-name   //name 可自訂
+$(this).data("name") 或 $(this).attr("data-name")//讀取data-name 
+0413B_AccessDOM要複習
+lottery 球數指定
+長輩圖 鏡頭形狀
+$(.類別名稱|元素|參考|選擇器|可用[name="xxx"]).action()
+$傳回一組jQuery物件
+document.write
+
+<link rel="stylesheet" href="./style.css">
+plugin 套件
+
+
+//兩種讀value的方式
+$(".pet").eq(0).data("species",speciesList[0]);	
+   
+$(".pet:eq(0)").data("species",speciesList[0]);
+0411 more有array介紹

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Exercises</title>
+	
+<script>
+
+function Button1_onclick() {
+	// var seasons = new Array("春", "夏", "秋", "冬");  // A
+	var seasons = ["春", "夏", "秋", "冬"];  // B
+
+	seasons[9] = "暖冬"; 
+
+	var result = "";
+
+	for (var i = 0; i <= seasons.length; i++) {
+		result += seasons[i] + "<br>";
+	}
+
+	debug.innerHTML = result;
+}
+
+</script>
+
+
+</head>
+<body>
+ 	txt1:
+	<input type="text" id="txt1" name="txt1" value="World" PlaceHolder="Keyin something" size="40">
+	<br><br>
+	<input type="button" id="Button1" name="Button1"   
+		value="2. 點我一下，執行 JavaScript" onclick="Button1_onclick()">
+	<br><br>
+	txt2:
+    <INPUT type="text" id="txt2"  name="txt2" value="Result" size="40">
+    <br>
+    <div id="debug"></div>
+</body>
+</html>

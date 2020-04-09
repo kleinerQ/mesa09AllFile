@@ -1,0 +1,149 @@
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab</title>
+        
+        
+    </head>
+    
+    <body>
+        <!--圖片大小都要240x200-->
+
+    
+    <!--<input type="text" id="textInput" value="發呆中..." style="float:left;">-->
+    <!--<input type="button" id="buttonid" value="送出文字" onclick="button1_onclick()" style="float:left;">        -->
+    
+    <!--<div class="form-group" style="float:left;">-->
+    <!--  <label class="col-md-4 control-label" for="selectbasic">濾鏡樣式</label>-->
+    <!--  <div class="col-md-4">-->
+    <!--    <select id="selectbasic" name="selectbasic" class="form-control">-->
+    <!--      <option value="1">復古濾鏡</option>-->
+    <!--      <option value="2">灰階濾鏡</option>-->
+    <!--      <option value="">紅光濾鏡</option>-->
+    <!--    </select>-->
+    <!--  </div>-->
+    <!--</div>-->
+    
+    
+    <!--<div id="debug" value ="test"></div>-->
+    
+    <canvas id="canvasLab" width="240" height="200"
+            style="border:1px solid #000000;"></canvas>
+    <canvas id="canvasSmall" width="120" height="100"
+            style="border:1px solid #000000;"></canvas>
+    <!--<img id="imgView" width="120" height="100" style="border:1px solid #000000;" />        -->
+        
+    <!--<div>-->
+    <!--    <a id="aDownload" href="#">Download(Not Ready)</a>-->
+    <!--</div>-->
+    
+    <!--<img id="imgLoop" src="rabbit_240x200.jpeg" style="display: none;"/>-->
+    <img id="imgLoop" src="heidelberg.jpg" />
+    
+        <script type="text/javascript" >
+        
+            window.onload = init;
+    
+            function init() {
+            
+
+            var c = document.getElementById("canvasLab");
+            var ctx = c.getContext("2d");
+            
+            ctx.arc(120, 100, 80, 0, 2 * Math.PI);
+           // ctx.rect(120,100,200,150);
+            
+            ctx.stroke();
+            ctx.clip();
+            // ctx.globalCompositeOperation = "destination-over";
+            ctx.drawImage(imgLoop, 0, 0);        
+            var ctxSmall = canvasSmall.getContext("2d");
+            ctxSmall.drawImage(canvasLab, 0, 0, 240, 200, 0, 0, 120, 100);
+
+            var imgData = ctxSmall.getImageData(0, 0, 120, 100);
+            
+            //imgData=graylized(imgData);
+            imgData=oldlized(imgData);
+            //imgData.imageSmoothingEnabled = true;
+            // var data = imgData.data;
+            // for (var i = 0; i < data.length; i += 4) {
+            //     var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            //     data[i] = avg; // red
+            //     data[i + 1] = avg; // green
+            //     data[i + 2] = avg; // blue
+            // }
+            
+            
+            ctxSmall.putImageData(imgData, 0, 0);
+            console.log(canvasSmall.toDataURL("image/png"));
+            imgView.src = canvasSmall.toDataURL("image/png");   
+            //aDownload.href = canvasSmall.toDataURL("image/png");
+            
+        }         
+        
+        function graylized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg; // red
+                data[i + 1] = avg; // green
+                data[i + 2] = avg; // blue
+            }
+            return imgData;
+            
+        }
+
+        function redlized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg*0.9; // red
+                data[i + 1] = avg*0.1; // green
+                data[i + 2] = avg*0.1; // blue
+            }
+            return imgData;
+            
+        }
+        
+        
+        function oldlized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg*0.6; // red
+                data[i + 1] = avg*0.4; // green
+                data[i + 2] = avg*0.1; // blue
+            }
+            return imgData;
+            
+        }     
+        
+        
+            
+        //var imageText=textInput.value;
+        //debug.innerHTML = textInput.value;
+        
+        function button1_onclick(){
+            
+            
+            var imageText = textInput.value;
+            
+            var ctxSmall = canvasSmall.getContext("2d");
+            //ctxSmall.clearText(0,0,120,100);
+            
+            ctxSmall.globalCompositeOperation = "source-over";
+            ctxSmall.font="20px Marlett";
+            ctxSmall.strokeText(imageText,30,90);
+            
+            
+            //ctx.fillText("Test", 200 ,150);            
+            
+            
+            
+            //debug.innerHTML = textInput.value;
+            
+            
+        }
+        </script>
+    </body>
+</head>

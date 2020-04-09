@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        
+    .boxTitle{
+        
+        text-align:right;
+        padding:0;
+    }
+
+	.ball {
+	    
+	    
+	    text-align:center;
+	    padding-top:40px;
+	    margin:0;
+		position: relative;
+		top: -300px;
+		left: 10px;
+		width: 150px;
+		height: 150px;
+		background-color: orange;
+		color: blue;
+		font-weight:bold;
+		font-size:18px;
+		
+		border: 2px solid #ccc;
+		-moz-border-radius: 500px;
+		-webkit-border-radius: 500px;
+		-khtml-border-radius: 500px;
+		-moz-box-shadow: 0 1px 5px #333;
+		-webkit-box-shadow: 0 1px 5px #333;
+		z-index: 101;
+		-webkit-transition: top 3s ease-out;
+		-ms-transition: top 3s ease-out;
+		transition: all 3s ease-out;		
+		
+		
+	}
+	
+	.box h6 {
+	    font-size:10px;
+		
+        padding:10px;
+        margin:0;
+        text-align : center ;
+		
+		background-color: green;
+		color: white;
+		-moz-border-radius: 30px;
+		-webkit-border-top-left-radius: 30px;
+		-webkit-border-top-right-radius: 30px;
+		-khtml-border-top-left-radius: 30px;
+		-khtml-border-top-right-radius: 30px;
+	}
+	
+	.box p{
+	    width: 80px;
+	    margin: 0;
+	    position:absolute;
+	    left:5.5px;
+	    background-color: green;
+	    font-size: 20px;
+	    text-align : center ;
+	    
+	}        
+    </style>
+    
+
+</head>
+<body>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 boxTitle"  >
+                    總共可選號碼個數:
+                </div>    
+                <div class="col-sm-1 "  >
+                    <input type="text" id="lotteryTotalNumber" value="49">
+                    <br><br> 
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 boxTitle"  >
+                    可選號碼個數:<br>目前球只支援顯示六顆
+                </div>  
+              
+                <div class="col-sm-1" >
+                    <input type="text" id="lotteryNumber" value="6">
+                    <br><br>  
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 boxTitle">
+                <input type="button" id="button1" onclick="button1_onclick()" value="按我開獎">
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" >
+            <div class="row">
+            <div class="col-sm-2"  >
+                
+                <div id="lotteryball1" class="ball" ></div>
+
+            </div>
+
+            <div class="col-sm-2" >
+                
+                <div id="lotteryball2"  class="ball"></div>
+
+            </div>            
+            <div class="col-sm-2" >
+                
+                <div id="lotteryball3" class="ball"></div>
+
+            </div>
+
+            <div class="col-sm-2" >
+                
+                <div id="lotteryball4"  class="ball"></div>
+
+            </div>
+            <div class="col-sm-2" >
+                
+                <div id="lotteryball5" class="ball"></div>
+
+            </div>
+
+            <div class="col-sm-2" >
+                
+                <div id="lotteryball6"  class="ball"></div>
+
+            </div>
+            </div>
+        </div>
+    
+        <div id="debug7"></div>    
+        <script type="text/javascript">
+    
+            
+        function button1_onclick(){
+            
+            document.getElementById("lotteryball1").innerHTML = "";
+
+            var originalLotteryMatrix=[];
+            var maxPollNumber = lotteryTotalNumber.value;
+            var betNumber = lotteryNumber.value;
+            
+            
+            for (var i = 0; i< maxPollNumber; i++){
+                
+                originalLotteryMatrix[i] = i+1; 
+            }
+            
+            var lotteryMatrix=[];
+            
+            for (var i = 0; i < betNumber; i++){
+                
+                var randomNumber = Math.floor(Math.random()*originalLotteryMatrix.length);
+                lotteryMatrix[i] = originalLotteryMatrix[randomNumber];
+                originalLotteryMatrix.splice(randomNumber,1);
+                //document.getElementById("debug").innerHTML += lotteryMatrix + "<br>";
+                
+            }
+            
+            //document.getElementById("debug").style.top = "100px";
+            for(var i = 1 ; i <= betNumber ; i++){
+                
+                var char = 'document.getElementById("lotteryball' + i + '").style.top = "100px"';
+                //var char = 'document.getElementById("debug").style.top = "100px"';
+                             
+                //debug7.innerHTML = char;
+                setTimeout(char,500*i);
+            }
+            document.getElementById("lotteryball1").innerHTML  = "第"+ 1 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[0] + "</span>";
+            document.getElementById("lotteryball2").innerHTML = "第"+ 2 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[1] + "</span>";
+            document.getElementById("lotteryball3").innerHTML = "第"+ 3 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[2] + "</span>";
+            document.getElementById("lotteryball4").innerHTML = "第"+ 4 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[3] + "</span>";
+            document.getElementById("lotteryball5").innerHTML = "第"+ 5 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[4] + "</span>";
+            document.getElementById("lotteryball6").innerHTML = "第"+ 6 + "個開獎號碼" + "<br>" + "<span style=\"font-size:40px;\">" + lotteryMatrix[5] + "</span>";
+            // for (var i = 0; i < betNumber ; i++){
+                
+            //     var displayCommand = "displayResult(lotteryMatrix," + i +")";
+            //     //document.getElementById("debug").innerHTML += lotteryMatrix + "<br>";
+                
+            //     //setTimeout(displayCommand,50*(i+1));
+            //     //displayResult(lotteryMatrix,i);
+                
+            //     // if ( i == betNumber-1)
+            //     //     setTimeout('document.getElementById("debug").innerHTML += "祝你中獎"', 100*(i+2));
+               
+            //   //document.getElementById("debug").innerHTML += displayCommand;
+                
+            // }  
+            
+            
+            
+            
+        }            
+
+            
+            function displayResult(matrix,order){
+               // document.getElementById("debug").innerHTML = "第"+ "order+1" + "開獎號碼:" + matrix[i] + "<br>";
+                //var printChar = "debug" + (order+1);
+                //document.getElementById("debug").innerHTML += printChar;
+                document.getElementById("debug").innerHTML += "第"+ (order+1) + "個開獎號碼:" + matrix[order]+ "<br>";
+                
+            
+            }            
+
+            function randomMatrix(matrix, randomCount){
+                
+                for (var i = 0; i < randomCount; i++){
+                    
+                    var temp = matrix[0];
+                    var replaceIndex = Math.floor(Math.random()*matrix.length);
+                    matrix[0] = matrix[replaceIndex];
+                    matrix[replaceIndex] = temp;
+                    //document.getElementById("debug").innerHTML += matrix + "<br>";
+                    
+                }        
+                
+                //document.getElementById("debug").innerText += matrix + "<br>";
+                return matrix;
+            }        
+        </script>
+        
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script  src="js/bootstrap.min.js"></script>
+    </body>
+</html>

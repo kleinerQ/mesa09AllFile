@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>accordion demo</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+    
+    <body>
+        <div id="accordion">
+          <h4>First header</h4>
+          <div>First content panel</div>
+          <h4>Second header</h4>
+          <div>Second content panel</div>
+          
+          <h4>Second header</h4>
+          <div>
+              <ul style=" list-style:none;">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+              </ul>
+          </div>
+          
+        </div>
+        <script>
+        
+            $( "#accordion" ).accordion();
+            $( "#accordion" ).accordion( "option", "active", 2 );
+            //$( "#accordion" ).accordion( "option", "event", "mouseover" );
+            $( "#accordion" ).accordion({
+                      collapsible: true
+            });
+            $("#accordion").accordion({ header: "h3" });
+        </script>    
+    </body>
+</html>

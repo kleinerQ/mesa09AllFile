@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Custom Slider</title>
+    <!-- Fill the iOS screen /-->
+    <meta name="viewport" content="width=400" />
+    <style>
+        canvas {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: beige;
+            border-radius: 25px;
+            border: 1px solid #404040;
+        }
+        .slider {
+            position: absolute;
+            top: 115px;
+            left: 85px;
+            width: 152px;
+            height: 52px;
+        }
+        .bar {
+            position: relative;
+            top: 30px;
+            width: 152px;
+            height: 2px;
+            background-color: #404040;
+        }
+        .knob {
+            position: relative;
+            left: 0;
+            border: 1px solid #404040;
+            background-color: #c0c0c0;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var can, ctx, image, slider,
+            knob, mouseIsDown, knobMid;
+ 
+        function init() {
+            slider = document.getElementById("slider");
+            knob = document.getElementById("knob");
+            image = document.getElementById("image");
+            can = document.getElementById("can");
+            ctx = can.getContext("2d");
+            mouseIsDown = 0;
+            knobMid = knob.offsetWidth / 2;
+            margin = can.offsetLeft - 1;
+            textInit();
+            showVal();
+        }
+ 
+        function textInit() {
+            ctx.fillStyle = "blue";
+            ctx.font = "24pt Helvetica";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "bottom";
+        }
+ 
+        function showVal() {
+            // value goes from 0 to slider-width minus knob width
+            var sliderVal = knob.offsetLeft;
+            ctx.save();
+            ctx.clearRect(0, 0, can.width, can.height);
+            var scale = 0.9 + sliderVal / 200;
+            ctx.scale(scale, scale);
+            ctx.drawImage(image, 0, 0);
+            ctx.restore();
+            ctx.fillText(sliderVal, can.width / 2, can.height - 5);
+            setTimeout(showVal, 25);
+        }
+ 
+        function mouseDown() {
+            mouseIsDown = 1;
+            mouseXY();
+        }
+ 
+        function mouseUp() {
+            mouseIsDown = 0;
+        }
+ 
+        function mouseXY(e) {
+            if (mouseIsDown) {
+                if (!e)
+                    var e = event;
+                var mouseX = e.pageX - slider.offsetLeft;
+                if (mouseX >= 0 && mouseX <= slider.offsetWidth ) {
+                    setKnob(mouseX);
+                }
+            }
+        }
+ 
+        function touchXY(e) {
+            if (!e)
+                var e = event;
+            // slide, don't scroll
+            e.preventDefault();
+            var touchX = e.touches[0].pageX - slider.offsetLeft;
+            if (touchX >= 0 && touchX <= slider.offsetWidth) {
+                setKnob(touchX);
+            }
+        }
+ 
+        function setKnob(x) {
+            var knobX = x - knobMid;
+            knobX = Math.max(knobX, 0);
+            knobX = Math.min(knobX, slider.offsetWidth - knob.offsetWidth);
+            knob.style.left = knobX;
+        }
+    </script>
+</head>
+<body onload="init()" onmouseup="mouseUp()">
+    <canvas id="can" height="200" width="300">
+    </canvas>
+    <div class="slider" id="slider"
+         onmousedown="mouseDown()" onmousemove="mouseXY()"
+         ontouchstart="touchXY()" ontouchmove="touchXY()">
+        <div class="bar"></div>
+        <div id="knob" class="knob"></div>
+    <div>
+    <img id="image" style="display:none" src="./images/clickme.png" />
+</body>
+</html>

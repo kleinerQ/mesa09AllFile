@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div id="tower">...</div>
+        
+        <script>
+            function getLine(count, what) {
+            	var line = "";
+            	for (var i = 1; i <= count; i++) {
+            		line = line + what;
+            	}
+            	return line;
+            }        
+
+            var stars = "";
+            
+            for (var i = 1; i <= 5; i++) {
+                for (var j = 1; j <= i; j++) {
+                    stars += "*";
+                }
+                stars += "<br>";
+                //stars = stars + getLine(i, "*") + "<br>"; 
+            }
+            
+            // stars = stars + "*<br>"
+            // stars = stars + "**<br>"
+            // stars = stars + "***<br>"
+            // stars = stars + "****<br>"
+            // stars = stars + "*****<br>"
+            
+            tower.innerHTML = stars;
+        </script>
+        
+    </body>
+</html>

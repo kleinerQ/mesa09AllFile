@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>長輩圖產生器</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">    
+
+        <style type="text/css">
+            #controlPanel{
+                background-color:#eeeeee;
+                width:400px;
+                margin:20px;
+                padding:15px;
+        		border: 2px solid #ccc;
+        		-moz-border-radius: 30px;
+        		-webkit-border-radius: 30px;
+        		-khtml-border-radius: 30px;
+        		-moz-box-shadow: 0 1px 5px #333;
+        		-webkit-box-shadow: 0 1px 5px #333;
+                
+            }
+        </style>    
+</head>
+<body>
+
+        <!--圖片大小都要240x200-->
+
+    <div class="container-fluid">
+        
+        <form class="form-horizontal " id = "controlPanel" style="padding:10;"  >
+                <div class="form-group" >
+                        
+                        <label class="col-md-3 control-label " for="selectbasic" style="float:left; padding-right:10px;">圖片文字</label>
+                        
+                        <div class="col-md-8">
+                            <input type="text" id="textInput" value="有事嗎..."  class="form-control" >
+                        </div>
+                </div>
+            
+         
+            
+            
+                <div class="form-group"  >
+                      <label class="col-md-3 control-label " for="selectbasic" style="float:left;padding-right:10px;">濾鏡效果</label>
+                      
+                      <div class="col-md-8" >
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                              <option value="1">復古濾鏡</option>
+                              <option value="2"selected>灰階濾鏡</option>
+                              <option value="3" >反轉濾鏡</option>
+                            </select>
+                      </div>
+                </div>
+            
+                
+                <!--//失敗，無法清掉clip的框-->
+                <!--<div class="form-group" style="margin:16px; margin-left:0px;" >-->
+                <!--  <label class="col-md-4 control-label " for="imageOutline" style="float:left;padding-right:10px;">鏡頭形狀</label>-->
+                <!--  <div class="col-md-3" >-->
+                <!--    <select id="imageOutline" name="imageOutline" class="form-control">-->
+                <!--      <option value="1">圓形鏡頭</option>-->
+                <!--      <option value="2"selected>星形鏡頭</option>-->
+                <!--      <option value="3" >方形鏡頭</option>-->
+                <!--    </select>-->
+                <!--  </div>-->
+                <!--</div>-->
+                <div class="form-group" style="padding:0;"  >
+                    <div class="col-md-offset-2 col-md-8" >
+                        <input type="button"  id="buttonid" value="送出文字與效果" onclick="button1_onclick()"  class=" form-control input-md btn btn-danger" style="font-size:16px; height:50px ;"> 
+                    </div>
+                </div>
+        </form>
+    
+    
+        <div id="debug" value ="test"></div>
+        
+        <canvas id="canvasLab" width="240" height="200"
+                style="border:1px solid #000000; margin-left:10px;"></canvas>
+        <canvas id="canvasSmall" width="120" height="100"
+                style="border:1px solid #000000;"></canvas>
+
+    </div>
+    <img id="imgView" width="120" height="100" style="border:1px solid #000000; display: none;" />        
+        
+
+        <!--<a id="aDownload" href="#" download="loop.png" style="float:left; margin-left:20px; padding:0;" >Download</a>-->
+        <div class="form-group" >
+            <div class="col-sm-offset-0 col-sm-4">
+                <a  id="aDownload_2" href="#" download="loop.png" >
+                    <button type="button" class="btn btn-success" style="width:300px; height:100px; margin-left:10px; font-size:50px">
+                    按我下載
+                    </button>
+                    
+                </a>
+            </div>
+            
+        </div>
+        
+        
+  
+        
+        
+    <!--<img id="imgLoop" src="rabbit_240x200.jpeg" style="display: none;"/>-->
+    <img id="imgLoop" src="heidelberg.jpg" style="display: none;"/>
+    
+        <script type="text/javascript" >
+        
+            window.onload = init;
+    
+            function init() {
+            
+           
+            var c = document.getElementById("canvasLab");
+            var ctx = c.getContext("2d"); 
+            
+            star(ctx,120, 100, 80, 6, 0.6);
+            ctx.clip();                     
+            ctx.drawImage(imgLoop, 0, 0);
+            
+        }         
+        
+            function star(ctx, x, y, r, p, m)
+            {
+                ctx.save();
+                ctx.beginPath();
+                ctx.translate(x, y);
+                ctx.moveTo(0,0-r);
+                for (var i = 0; i < p; i++)
+                {
+                    ctx.rotate(Math.PI / p);
+                    ctx.lineTo(0, 0 - (r*m));
+                    ctx.rotate(Math.PI / p);
+                    ctx.lineTo(0, 0 - r);
+                }
+                ctx.fill();
+                ctx.restore();
+            }         
+        //灰階濾鏡
+        function graylized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg; // red
+                data[i + 1] = avg; // green
+                data[i + 2] = avg; // blue
+            }
+            return imgData;
+            
+        }
+
+        //紅階濾鏡
+        function redlized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg*0.9; // red
+                data[i + 1] = avg*0.1; // green
+                data[i + 2] = avg*0.1; // blue
+            }
+            return imgData;
+            
+        }
+        
+        
+        //復古濾鏡
+        function oldlized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg*0.6; // red
+                data[i + 1] = avg*0.4; // green
+                data[i + 2] = avg*0.1; // blue
+            }
+            return imgData;
+            
+        }     
+        
+        
+        function revertlized(imgData){
+            var data = imgData.data;
+            for (var i = 0; i < data.length; i += 4) {
+
+                    
+                data[i]     = 255 - data[i]; // red
+                data[i + 1] = 255 - data[i + 1] ; // green
+                data[i + 2] = 255 - data[i + 2]; // blue
+            }
+            return imgData;
+            
+        }        
+            
+        //var imageText=textInput.value;
+        //debug.innerHTML = textInput.value;
+        
+        //按鈕觸發
+        function button1_onclick(){
+            
+
+            var imageText = textInput.value;
+            
+            var ctxSmall = canvasSmall.getContext("2d");
+            ctxSmall.clearRect(0,0,120,100);                             //清空以利再次套用濾鏡與文字
+            
+            
+            //ctx.drawImage(imgLoop, 0, 0);
+            //ctxSmall.clearText(0,0,120,100);
+            
+                        //畫出文字
+            
+            
+            var ctxSmall = canvasSmall.getContext("2d");
+            ctxSmall.drawImage(canvasLab, 0, 0, 240, 200, 0, 0, 120, 100);   //畫出縮小過後的小張圖
+
+            var imgData = ctxSmall.getImageData(0, 0, 120, 100);            
+            
+            //計算選擇的濾鏡效果
+            if (selectbasic.value==1){                                      
+                imgData=oldlized(imgData);
+                
+            }else if (selectbasic.value==2){
+                imgData=graylized(imgData);
+                
+                
+            }else{
+                
+                imgData=revertlized(imgData);
+                
+            }
+            
+
+            
+            ctxSmall.putImageData(imgData, 0, 0);    //畫出濾鏡後效果
+            //ctx.fillText("Test", 200 ,150);            
+            
+            ctxSmall.globalCompositeOperation = "source-over";
+            ctxSmall.font="20px Marlett";
+            ctxSmall.strokeStyle="red";
+            ctxSmall.strokeText(imageText,30,90);             
+            
+            //debug.innerHTML = imageOutline.value;
+            console.log(canvasSmall.toDataURL("image/png"));
+            imgView.src = canvasSmall.toDataURL("image/png");   
+            aDownload_2.href = canvasSmall.toDataURL("image/png");            
+            
+        }
+        
+        
+        </script>
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.toast.js"></script>
+</body>
+</html>

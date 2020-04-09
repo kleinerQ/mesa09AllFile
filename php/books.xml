@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<books>
+    <book isbn="12345678" price="100">
+        <title>PHP </title>
+        <authors>
+            <author>Brad</author>
+            <author>Vincent</author>
+        </authors>
+        <description>
+            The best selling Book
+        </description>
+    </book>
+
+
+    <book isbn="87654321" price="90">
+        <title>PHP Sucks</title>
+        <authors>
+            <author>Brad</author>
+
+        </authors>
+        <description>
+            The best dumb Book
+        </description>
+    </book>
+
+
+</books>
